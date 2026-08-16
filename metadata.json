@@ -1,0 +1,6 @@
+{
+  "name": "CircuitCraft Arduino Compiler",
+  "description": "Deterministic Text-to-Circuit compiler and interactive Arduino/RP2040 hardware simulator powered by AVR8js (16MHz) and rp2040js (133MHz Dual-Core ARM Cortex-M0+), translating natural language prompts into live circuits, schematics, and interactive components.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

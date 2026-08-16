@@ -1,0 +1,113 @@
+@import "tailwindcss";
+
+@layer components {
+  /* Frosted glass container: translucent surface, blur, soft inner highlight + outer shadow. */
+  .glass-panel {
+    background: rgba(30, 41, 59, 0.55);
+    backdrop-filter: blur(20px) saturate(160%);
+    -webkit-backdrop-filter: blur(20px) saturate(160%);
+    border: 1px solid rgba(148, 163, 184, 0.14);
+    box-shadow:
+      0 8px 32px rgba(0, 0, 0, 0.28),
+      inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  }
+
+  /* Slightly stronger blur/opacity for elements that float above the canvas (toolbars, toasts). */
+  .glass-panel-strong {
+    background: rgba(15, 23, 42, 0.72);
+    backdrop-filter: blur(24px) saturate(160%);
+    -webkit-backdrop-filter: blur(24px) saturate(160%);
+    border: 1px solid rgba(148, 163, 184, 0.16);
+    box-shadow:
+      0 8px 32px rgba(0, 0, 0, 0.35),
+      inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  }
+
+  /* Recessed glass surface for inputs/selects sitting inside a glass-panel. */
+  .glass-well {
+    background: rgba(2, 6, 23, 0.45);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border: 1px solid rgba(148, 163, 184, 0.16);
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.35);
+  }
+
+  /* Neutral glass button: translucent chrome + a light gradient sheen overlay for a glossy,
+     "raised glass" feel that brightens on hover and presses down on click. */
+  .glass-btn {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    transition: transform 0.1s ease, background-color 0.15s ease, border-color 0.15s ease;
+  }
+  .glass-btn::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0) 60%);
+    pointer-events: none;
+  }
+  .glass-btn:hover {
+    background: rgba(255, 255, 255, 0.09);
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+  .glass-btn:active {
+    transform: translateY(1px);
+  }
+
+  /* Primary (brand-colored) glass button: keeps the solid accent color for visual weight,
+     but layers the same glossy sheen overlay on top so it matches the glass language. */
+  .glass-btn-primary {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    transition: transform 0.1s ease, filter 0.15s ease;
+  }
+  .glass-btn-primary::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.32) 0%, rgba(255, 255, 255, 0) 55%);
+    pointer-events: none;
+  }
+  .glass-btn-primary:hover {
+    filter: brightness(1.08);
+  }
+  .glass-btn-primary:active {
+    transform: translateY(1px);
+  }
+
+  /* Lightweight glass card for repeated grid items (no backdrop-filter, so it stays cheap
+     even with dozens on screen at once - just translucency + a soft highlight). */
+  .glass-card {
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(148, 163, 184, 0.14);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  }
+  .glass-card:hover {
+    background: rgba(30, 41, 59, 0.75);
+    border-color: rgba(96, 165, 250, 0.5);
+  }
+
+  /* Active/selected glass tab: brighter translucent fill + sheen on top. Pair with a
+     Tailwind `ring-1 ring-{accent}-400` utility for the colored accent ring - kept out of
+     this class since `ring-*` also uses box-shadow and the utilities layer must win. */
+  .glass-tab-active {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    background: rgba(59, 130, 246, 0.22);
+    border: 1px solid rgba(96, 165, 250, 0.45);
+  }
+  .glass-tab-active::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.14) 0%, rgba(255, 255, 255, 0) 60%);
+    pointer-events: none;
+  }
+}
