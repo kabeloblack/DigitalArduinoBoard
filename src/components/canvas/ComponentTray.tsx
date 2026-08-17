@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { ComponentType } from "../../types/circuit";
 import { WOKWI_CATALOG, WokwiItemDefinition } from "../../services/wokwiCatalog";
 import { ComponentThumbnail } from "./ComponentThumbnail";
-import { Cpu, Plus, Search, Zap, Layers, Filter } from "lucide-react";
+import { Plus, Search, Zap } from "lucide-react";
 
 interface ComponentTrayProps {
   onAddComponent: (type: ComponentType, props: Record<string, any>) => void;
@@ -40,27 +40,8 @@ export const ComponentTray: React.FC<ComponentTrayProps> = ({ onAddComponent }) 
 
   return (
     <div className="glass-panel rounded-xl p-4 space-y-3">
-      {/* Top Header with Title, Search and Category Filter Tabs */}
+      {/* Top Header with Search and Category Filter Tabs */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 pb-3 border-b border-slate-700/60">
-        <div className="flex items-center gap-2.5">
-          <div className="p-1.5 rounded-lg bg-blue-600/20 border border-blue-500/40 text-blue-400 shadow-inner">
-            <Cpu className="w-4 h-4" />
-          </div>
-          <div>
-            <div className="flex items-center gap-2">
-              <h3 className="text-xs font-bold text-slate-100 uppercase tracking-wider font-mono">
-                Wokwi Hardware Elements Catalog
-              </h3>
-              <span className="text-[10px] font-mono px-1.5 py-0.2 rounded-full bg-blue-950 text-blue-300 border border-blue-800">
-                {WOKWI_CATALOG.length} Parts Available
-              </span>
-            </div>
-            <p className="text-[11px] text-slate-400">
-              Select or drag official Wokwi hardware components onto the interactive breadboard canvas.
-            </p>
-          </div>
-        </div>
-
         {/* Search Bar + Category Pills */}
         <div className="flex flex-wrap items-center gap-2">
           {/* Quick Search */}

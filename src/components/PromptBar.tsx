@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Sparkles, ArrowRight, CheckCircle2, Cpu, Wrench, RefreshCw, Wand2 } from "lucide-react";
+import { ArrowRight, CheckCircle2, RefreshCw } from "lucide-react";
 import { CIRCUIT_PRESETS } from "../services/circuitPresets";
 import { CircuitBlueprint } from "../types/circuit";
 import { compileNaturalLanguageToCircuit } from "../services/localCompiler";
@@ -59,20 +59,6 @@ export const PromptBar: React.FC<PromptBarProps> = ({ onCompile, isCompiling }) 
   return (
     <div className="glass-panel p-3.5 rounded-xl space-y-3">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-        <div className="flex items-center gap-2">
-          <div className="p-1.5 rounded bg-blue-900/60 border border-blue-700/60 text-blue-400">
-            <Wand2 className="w-3.5 h-3.5" />
-          </div>
-          <div>
-            <h2 className="text-xs font-bold text-slate-100 uppercase tracking-wider font-mono flex items-center gap-1.5">
-              Deterministic Natural Language Compiler
-            </h2>
-            <p className="text-[11px] text-slate-400">
-              Type system requirements to synthesize hardware placement, wiring jumpers, and executable C++ code.
-            </p>
-          </div>
-        </div>
-
         {/* Preset Selector */}
         <div className="flex items-center gap-2 shrink-0">
           <span className="text-[11px] text-slate-400 font-medium">Presets:</span>

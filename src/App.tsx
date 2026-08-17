@@ -612,14 +612,16 @@ export default function App() {
         </div>
 
         {/* Architecture Status indicator */}
-        <div className="hidden lg:flex items-center gap-2 text-[11px] font-mono text-slate-400">
+        {/* `tabular-nums` keeps the clock/part/wire figures in fixed-width columns; without it the
+            sans face reflows the row every time a count changes. */}
+        <div className="hidden lg:flex items-center gap-2 text-[11px] font-sans tabular-nums text-slate-400">
           {isRp2040Arch ? (
-            <span className="text-purple-300 font-semibold flex items-center gap-1.5">
+            <span className="text-white font-semibold flex items-center gap-1.5">
               <span className="w-2 h-2 rounded-full bg-purple-400 animate-pulse" />
               RP2040js: 133.00 MHz Dual Cortex-M0+
             </span>
           ) : (
-            <span className="text-cyan-400 font-semibold flex items-center gap-1.5">
+            <span className="text-white font-semibold flex items-center gap-1.5">
               <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
               AVR8js: 16.00 MHz ATmega328P
             </span>
