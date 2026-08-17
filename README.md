@@ -1,20 +1,20 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+# CircuitCraft Arduino Compiler
 
-# Run and deploy your AI Studio app
+A deterministic text-to-circuit compiler and interactive Arduino/RP2040 hardware simulator. Describe a circuit in natural language and get back a live, wired schematic you can simulate, inspect, and interact with.
 
-This contains everything you need to run your app locally.
+## Features
 
-View your app in AI Studio: https://ai.studio/apps/ab2a17c0-22c6-4629-94c7-7cb5cecca773
+- **Natural language to circuit**: turns plain-English prompts into wired circuit blueprints (components, connections, and Arduino sketch).
+- **Cycle-accurate emulation**: real ATmega328P (Uno/Nano) emulation via [avr8js](https://github.com/wokwi/avr8js) and real RP2040 emulation via [rp2040js](https://github.com/wokwi/rp2040js), with a regex-based interpreter fallback for other boards (ESP32, Mega, Franzininho).
+- **Interactive hardware canvas**: functional breadboard, protocol-accurate HD44780 character LCDs, WS2812/NeoPixel decoding, real webcam-backed camera modules, and physically simulated (verlet rope physics) wires, built on [@wokwi/elements](https://github.com/wokwi/wokwi-elements).
+- **Live inspection**: CPU register viewer, compiled HEX/UF2 viewer, pinout table, and serial monitor.
 
 ## Run Locally
 
-**Prerequisites:**  Node.js
-
+**Prerequisites:** Node.js
 
 1. Install dependencies:
    `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
+2. Set the `GEMINI_API_KEY` in `.env.local` to your Gemini API key
 3. Run the app:
    `npm run dev`
