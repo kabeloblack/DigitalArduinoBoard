@@ -1,5 +1,10 @@
 # CircuitCraft Arduino Compiler
 
+> **Active development has moved.** This app now lives in
+> [kabeloblack/StudioHub](https://github.com/kabeloblack/StudioHub) (private) as one of
+> three apps behind a shared launcher, at the `/circuitcraft` route. This repo is kept
+> as history — changes pushed here will **not** reach the hub unless ported by hand.
+
 A deterministic text-to-circuit compiler and interactive Arduino/RP2040 hardware simulator. Describe a circuit in natural language and get back a live, wired schematic you can simulate, inspect, and interact with.
 
 ## Features
